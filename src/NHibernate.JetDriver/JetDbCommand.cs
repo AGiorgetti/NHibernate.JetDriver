@@ -23,7 +23,7 @@ namespace NHibernate.JetDriver
     /// </summary>
     public sealed class JetDbCommand : DbCommand
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(JetDbCommand));
+        // private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(typeof(JetDbCommand));
 
         private JetDbConnection _connection;
         private JetDbTransaction _transaction;
@@ -124,7 +124,7 @@ namespace NHibernate.JetDriver
 
             p.DbType = DbType.Int32;
             p.Value = normalizedLongValue;
-            Log.DebugFormat("Changing Int64 parameter value to [{0}] as Int32, to avoid DB confusion", normalizedLongValue);
+            // Log.DebugFormat("Changing Int64 parameter value to [{0}] as Int32, to avoid DB confusion", normalizedLongValue);
         }
 
         private void FixDecimalValue(IDataParameter p)
@@ -143,7 +143,7 @@ namespace NHibernate.JetDriver
         private string GetNormalizedDateValue(DateTime date)
         {
             string normalizedDateValue = date.ToString("yyyy/MM/dd HH:mm:ss", CultureInfo.InvariantCulture);
-            Log.DebugFormat("Changing datetime parameter value to [{0}] as string, to avoid DB confusion", normalizedDateValue);
+            // Log.DebugFormat("Changing datetime parameter value to [{0}] as string, to avoid DB confusion", normalizedDateValue);
 
             return normalizedDateValue;
         }

@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Text;
 using System.Text.RegularExpressions;
 
-using log4net;
+// using log4net;
 
 using NHibernate.Driver;
 using NHibernate.SqlCommand;
@@ -20,7 +20,7 @@ namespace NHibernate.JetDriver
     /// </summary>
     public class JetDriver : OleDbDriver
     {
-        private static readonly ILog logger = LogManager.GetLogger(typeof(JetDriver));
+        // private static readonly ILog logger = LogManager.GetLogger(typeof(JetDriver));
 
         private const string FromClause = " from ";
         private const string WhereClause = " where ";
@@ -213,7 +213,7 @@ namespace NHibernate.JetDriver
                     {
                         if (i < blockParts.Length - 1)
                         {
-                            logger.Error("Invalid join syntax. Could not parenthesize the join block properly.");
+                            // logger.Error("Invalid join syntax. Could not parenthesize the join block properly.");
                             throw new QueryException("Invalid join syntax. Could not parenthesize the join block properly.");
                         }
 
@@ -235,7 +235,7 @@ namespace NHibernate.JetDriver
                 }
 
                 //the last block part contained the join. This should not happen.
-                logger.Error("Invalid join syntax. Could not parenthesize the join block properly.");
+                // logger.Error("Invalid join syntax. Could not parenthesize the join block properly.");
                 throw new QueryException("Invalid join syntax. Could not parenthesize the join block properly.");
             }
             else
